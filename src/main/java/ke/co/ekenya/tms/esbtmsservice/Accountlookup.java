@@ -66,7 +66,7 @@ public class Accountlookup {
             strAccountNumber = strReceivedData[3].replace("Ù", "");
             strAgentID = strReceivedData[4];
             strBanksortcode = strReceivedData[5];
-            //if SameBank
+            
             if ("SameBank".equalsIgnoreCase(strBanksortcode)) {
                 strTrack2Data = strReceivedData[6].replace("Ù", "");
                 strTrack2Data = strReceivedData[6].replace("?", "");

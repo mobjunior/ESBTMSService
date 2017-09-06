@@ -14,7 +14,7 @@ import java.io.StringWriter;
 
 /**
  *
- * @author julius
+ * @author simon
  */
 public class BalanceEnquiry {
 
@@ -111,10 +111,7 @@ public class BalanceEnquiry {
                     strNarration = "BALANCE INQUIRY";
                     strProcCode = "BAL";
                     strAmount = "0";
-
-                    //for test
                     field24 = "MM";
-
                     // strDebitAccount="10011206000001";
                     strDebitAccount = strCardNumber;//10011204000282
 
