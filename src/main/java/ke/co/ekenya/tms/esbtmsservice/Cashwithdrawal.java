@@ -59,7 +59,6 @@ public class Cashwithdrawal {
             strTrack2Data = strRecievedData[3].replace("Ù", "");
             strTrack2Data = strRecievedData[3].replace("?", "");
             strTrack2Data = strRecievedData[3].replace(";", "");
-            //strAgentID = func.fn_RemoveNon_Numeric(strAgentID);
             strPinClear = strRecievedData[5].replace("Ù", "");
             strPinClear = strPinClear.substring(0, 4);
             strAmount = strRecievedData[6].replace("Ù", "");
@@ -143,7 +142,7 @@ public class Cashwithdrawal {
                     return;
                 default:
                     break;
-            }// end of switch
+            }
 
         } catch (Exception ex) {
             StringWriter sw = new StringWriter();

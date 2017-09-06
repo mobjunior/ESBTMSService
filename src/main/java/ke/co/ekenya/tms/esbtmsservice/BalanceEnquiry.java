@@ -125,7 +125,6 @@ public class BalanceEnquiry {
             }
 
         } catch (Exception ex) {
-            // func.log("\nSEVERE BalanceEnquiry() :: " + ex.getMessage() + "\n" + func.StackTraceWriter(ex), "ERROR");
             StringWriter sw = new StringWriter();
             ex.printStackTrace(new PrintWriter(sw));
             TMSLog el = new TMSLog(sw.toString());
