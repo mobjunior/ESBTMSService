@@ -65,10 +65,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
         }
     }
-
-//         public void beforeAdd(ChannelHandlerContext ctx) {
-//         this.ctx = ctx;
-//     }
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
