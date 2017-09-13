@@ -18,8 +18,6 @@ import java.io.StringWriter;
  */
 public class CashDeposit {
 
-    //DatabaseConnections connections = new DatabaseConnections();
-    //ClassImportantValues cl = new ClassImportantValues();
     Functions func = new Functions();
     XMLParser parser = new XMLParser();
     DataConversions convert = new DataConversions();
@@ -65,7 +63,7 @@ public class CashDeposit {
             //210000#MWALLET#BRS51150650004#0708003472#200#12345#
 
             strReceivedData = IncomingMessage.split("#");
-            processingcode = strReceivedData[0].toString();
+            processingcode = strReceivedData[0];
             strAgencyCashManagement = strReceivedData[1];
             strDeviceid = strReceivedData[2];
             strAccountNumber = strReceivedData[3].replace("Ù", "");
@@ -90,8 +88,8 @@ public class CashDeposit {
                     //strCardNumber = strCreditAccount;
                     //strfield100 = "";
                     //strCreditAccount = "10011204000282";
-                   //s strDebitAccount = "10011204000282";
-                    func.getESBResponse_v1(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strfield100, strDebitAccount, strCreditAccount, "", "", strDeviceid, field24, strProcCode, strDeviceid,"","");
+                    //s strDebitAccount = "10011204000282";
+                    func.getESBResponse_v1(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strfield100, strDebitAccount, strCreditAccount, "", "", strDeviceid, field24, strProcCode, strDeviceid, "", "");
                     return;
 
                 case "MWALLET":
@@ -103,7 +101,7 @@ public class CashDeposit {
                     strDeviceid = strReceivedData[2];
 
                     //strProcCode = "400000";
-                    strDebitAccount =func.fn_getAgentAccountNumber(strAgentID);
+                    strDebitAccount = func.fn_getAgentAccountNumber(strAgentID);
 //                    strCreditAccount = "254" + strAccountNumber.substring(1, 10);
                     strCreditAccount = strAccountNumber;
                     strCardNumber = strCreditAccount;
@@ -114,7 +112,7 @@ public class CashDeposit {
                     //for test
                     //strDebitAccount = "10011204000282";
                     //strCreditAccount = "10011204000282";
-                    func.getESBResponse_v1(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strfield100, strDebitAccount, strCreditAccount, "", "", strDeviceid, field24, strProcCode, strDeviceid,"","");
+                    func.getESBResponse_v1(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strfield100, strDebitAccount, strCreditAccount, "", "", strDeviceid, field24, strProcCode, strDeviceid, "", "");
                     return;
 
                 case "CARDLESS":
@@ -127,7 +125,7 @@ public class CashDeposit {
                     strCreditAccount = strAccountNumber;
                     strNarration = "CASH DEPOSIT TO ACCOUNT : " + strCreditAccount;
                     func.getESBResponse(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strProcCode, strDebitAccount, strCreditAccount, strDeviceid, strPhoneNumber, strDeviceid);
-                    
+
                     return;
 
                 case "AGENCY":
@@ -208,8 +206,7 @@ public class CashDeposit {
                     //strCreditAccount="120630366600";
                     //strCreditAccount = "0120035195500";
                     //strDebitAccount = "10011204000282";
-
-                    func.getESBResponse_v1(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strfield100, strDebitAccount, strCreditAccount, "", "", strDeviceid, field24, strProcCode, strDeviceid,"","");
+                    func.getESBResponse_v1(strAgentID, strCardNumber, processingcode, strAmount, convert.PadZeros(12, intid), strNarration, strfield100, strDebitAccount, strCreditAccount, "", "", strDeviceid, field24, strProcCode, strDeviceid, "", "");
 
                     //end test
                     // strVerifyPin = func.PIN_Verify(strDeviceid, strNarration, strProcCode, strAmount, processingcode, strPinClear, strCardNumber, strExpiryDate, strAgentID, strField35, convert.PadZeros(12, intid), strPhoneNumber, strDebitAccount, strCreditAccount, strDeviceid);
@@ -222,7 +219,7 @@ public class CashDeposit {
             StringWriter sw = new StringWriter();
             ex.printStackTrace(new PrintWriter(sw));
             TMSLog el = new TMSLog(sw.toString());
-            el.logfile();            
+            el.logfile();
         }
 
     }
