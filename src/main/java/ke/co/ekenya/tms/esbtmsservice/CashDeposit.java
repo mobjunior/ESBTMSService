@@ -196,7 +196,6 @@ public class CashDeposit {
                         func.SendPOSResponse(strResponse, intid);
                         return;
                     }
-
                     strProcCode = "AGENT_DP";
                     strDebitAccount = func.fn_getAgentAccountNumber(strAgentID);
                     strCreditAccount = strAccountNumber;
